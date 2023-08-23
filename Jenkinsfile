@@ -8,6 +8,11 @@ pipeline {
                 sh 'npm install'
             }
         }
+	stage('Manual Approval') {
+	    steps {
+		inputMessage: 'Lanjutkan ke tahap Deploy?'
+	    }
+	}
         stage('Test') {
             steps {
 		echo "Test"
