@@ -8,15 +8,15 @@ pipeline {
                 sh 'npm install'
             }
         }
-	stage('Manual Approval') {
-	    steps {
-		input message: 'Lanjutkan ke tahap Deploy?'
-	    }
-	}
         stage('Test') {
             steps {
 		echo "Test"
                 sh './jenkins/scripts/test.sh'
+            }
+        }
+	stage('Manual Approval') {
+            steps {
+                input message: 'Lanjutkan ke tahap Deploy?'
             }
         }
 	stage('Deploy') {
