@@ -21,10 +21,8 @@ pipeline {
         }
 	stage('Deploy') {
             steps {
-		sh 'npm run build'
-		sh 'npm start'
-		sh 'sleep 1'
-		sh 'npm stop'
+		sh './jenkins/scripts/deliver.sh'
+		sh './jenkins/scripts/kill.sh'
             }
         }
     }
